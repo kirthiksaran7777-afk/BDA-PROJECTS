@@ -233,3 +233,91 @@ After completing this project, you will understand:
 # Conclusion
 
 The **BigBasket Distributed Log Collection System** demonstrates a complete pipeline for real-time log generation, collection, validation, partitioning, binary storage, and retrieval. It highlights key distributed systems concepts such as multithreading, socket communication, binary serialization, and dynamic partition management, making it a practical mini-project for Big Data and Distributed Systems coursework.
+# MapReduce Framework using Cricket Players
+
+## Project Title
+MapReduce Framework for Cricket Player Role Analysis
+
+## Objective
+The objective of this project is to implement a simple MapReduce framework in Python to analyze cricket player data. The program reads player information from a text file and counts the number of players in each role using the MapReduce process.
+
+## Description
+The project demonstrates the working of the MapReduce model through the following phases:
+
+- Mapper
+- Splitter
+- Partitioner
+- Sorter
+- Reducer
+
+The input data contains Player ID, Player Name, and Player Role. The output displays the total number of players in each role.
+
+## Files
+
+- `player.txt` – Input file containing player details.
+- `playermapper.py` – Reads the input file and generates key-value pairs.
+- `playersplitter.py` – Splits the mapper output for processing.
+- `playerpartitioner.py` – Groups similar keys together.
+- `playersorter.py` – Sorts the grouped data.
+- `playerreducer.py` – Counts the number of players in each role.
+- `playermaster.py` – Main program that executes all stages.
+
+## Input Format
+
+```
+PlayerID,PlayerName,Role
+```
+
+Example:
+
+```
+101,Virat Kohli,Batsman
+102,Rohit Sharma,Batsman
+103,Jasprit Bumrah,Bowler
+104,Hardik Pandya,All-Rounder
+```
+
+## Output
+
+```
+MAP OUTPUT
+[('Batsman',1), ('Batsman',1), ('Bowler',1), ('All-Rounder',1)]
+
+PARTITION OUTPUT
+{'Batsman':[1,1], 'Bowler':[1], 'All-Rounder':[1]}
+
+SORT OUTPUT
+{'All-Rounder':[1], 'Batsman':[1,1], 'Bowler':[1]}
+
+REDUCE OUTPUT
+All-Rounder : 1
+Batsman : 2
+Bowler : 1
+```
+
+## Requirements
+
+- Python 3.x
+- Visual Studio Code
+
+## How to Run
+
+1. Place all project files in the same folder.
+2. Open the folder in Visual Studio Code.
+3. Open the terminal.
+4. Run the command:
+
+```bash
+python playermaster.py
+```
+
+## Applications
+
+- Cricket team analysis
+- Player role statistics
+- Learning MapReduce concepts
+- Big Data processing simulation
+
+## Conclusion
+
+This project demonstrates the basic working of the MapReduce framework by processing cricket player data. It shows how data is mapped, split, partitioned, sorted, and reduced to produce meaningful results.
