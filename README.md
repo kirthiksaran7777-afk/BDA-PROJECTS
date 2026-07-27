@@ -321,3 +321,122 @@ python playermaster.py
 ## Conclusion
 
 This project demonstrates the basic working of the MapReduce framework by processing cricket player data. It shows how data is mapped, split, partitioned, sorted, and reduced to produce meaningful results.
+
+MiniSparkRDD – Amazon Product Analysis using RDD
+Project Title
+Amazon Product Analysis using RDD (Big Data Mini Project)
+
+Overview
+This project demonstrates the basic concepts of Big Data processing by implementing a simplified RDD (Resilient Distributed Dataset) pipeline in Python. The application loads an Amazon product dataset, performs filtering operations, transforms the data using map functions, and displays the final output.
+
+The project follows the MapReduce programming model and simulates Apache Spark RDD operations for educational purposes.
+
+Objectives
+Understand the concept of RDD in Big Data.
+Perform data loading from a CSV dataset.
+Apply multiple filter transformations.
+Use map transformation to extract required information.
+Collect and display processed results.
+Dataset
+Dataset: Amazon Product Dataset (amazon.csv)
+
+The dataset contains information such as:
+
+Product Name
+Category
+Rating
+Price
+Brand
+Product Details
+Technologies Used
+Python 3.x
+CSV File Handling
+Custom RDD Implementation
+Functional Programming (Lambda Functions)
+Project Structure
+MiniSparkRDD/
+│
+├── Data/
+│   └── amazon.csv
+│
+├── src/
+│   ├── loader.py
+│   ├── rdd.py
+│   └── utils.py
+│
+├── main.py
+└── README.md
+Workflow
+Load the Amazon dataset from CSV.
+Create an RDD object.
+Filter only products belonging to the Electronics category.
+Filter products having a rating greater than 4.
+Extract only the product names using the map transformation.
+Collect and display the final results.
+Processing Pipeline
+Load CSV
+      ↓
+Create RDD
+      ↓
+Filter Category = Electronics
+      ↓
+Filter Rating > 4
+      ↓
+Map Product Name
+      ↓
+Collect Results
+      ↓
+Display Output
+Sample Code Flow
+data = load_csv("amazon.csv")
+
+amazon_rdd = RDD(data)
+
+result = (
+    amazon_rdd
+    .filter(lambda x: "Electronics" in x["category"])
+    .filter(lambda x: float(x["rating"]) > 4)
+    .map(lambda x: x["product_name"])
+    .collect()
+)
+Big Data Concepts Used
+Resilient Distributed Dataset (RDD)
+Data Transformation
+Filter Operation
+Map Operation
+Action (Collect)
+Functional Programming
+Data Processing Pipeline
+Expected Output
+The program displays the names of Amazon Electronics products that have ratings greater than 4.
+
+Example:
+
+Apple AirPods Pro
+Sony WH-1000XM5
+Samsung Galaxy Buds
+JBL Flip Speaker
+Logitech Wireless Mouse
+(Output depends on the contents of the dataset.)
+
+Advantages
+Demonstrates the core concepts of Big Data processing.
+Easy to understand RDD transformations.
+Modular code structure.
+Efficient data filtering and processing.
+Suitable for educational and academic purposes.
+Applications
+E-commerce Product Analysis
+Product Recommendation Systems
+Customer Review Analysis
+Sales Analytics
+Big Data Learning and Research
+Future Enhancements
+Implement Reduce operation.
+Add sorting by rating.
+Perform price analysis.
+Generate graphical reports.
+Support larger datasets.
+Integrate with Apache Spark.
+Conclusion
+This project successfully demonstrates the implementation of RDD-based data processing using Python. By applying filter and map transformations, the system efficiently processes an Amazon product dataset and retrieves highly rated electronic products. The project helps understand the fundamental concepts of Big Data processing and serves as a foundation for learning Apache Spark.
