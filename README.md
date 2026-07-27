@@ -322,7 +322,7 @@ python playermaster.py
 
 This project demonstrates the basic working of the MapReduce framework by processing cricket player data. It shows how data is mapped, split, partitioned, sorted, and reduced to produce meaningful results.
 
-MiniSparkRDD – Amazon Product Analysis using RDD
+#MiniSparkRDD – Amazon Product Analysis using RDD
 Project Title
 Amazon Product Analysis using RDD (Big Data Mini Project)
 
