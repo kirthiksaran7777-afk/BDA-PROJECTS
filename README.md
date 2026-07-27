@@ -322,22 +322,22 @@ python playermaster.py
 
 This project demonstrates the basic working of the MapReduce framework by processing cricket player data. It shows how data is mapped, split, partitioned, sorted, and reduced to produce meaningful results.
 
-#MiniSparkRDD – Amazon Product Analysis using RDD
-Project Title
+# MiniSparkRDD – Amazon Product Analysis using RDD
+## Project Title
 Amazon Product Analysis using RDD (Big Data Mini Project)
 
-Overview
+## Overview
 This project demonstrates the basic concepts of Big Data processing by implementing a simplified RDD (Resilient Distributed Dataset) pipeline in Python. The application loads an Amazon product dataset, performs filtering operations, transforms the data using map functions, and displays the final output.
 
 The project follows the MapReduce programming model and simulates Apache Spark RDD operations for educational purposes.
 
-Objectives
+## Objectives
 Understand the concept of RDD in Big Data.
 Perform data loading from a CSV dataset.
 Apply multiple filter transformations.
 Use map transformation to extract required information.
 Collect and display processed results.
-Dataset
+## Dataset
 Dataset: Amazon Product Dataset (amazon.csv)
 
 The dataset contains information such as:
@@ -438,5 +438,5 @@ Perform price analysis.
 Generate graphical reports.
 Support larger datasets.
 Integrate with Apache Spark.
-Conclusion
+## Conclusion
 This project successfully demonstrates the implementation of RDD-based data processing using Python. By applying filter and map transformations, the system efficiently processes an Amazon product dataset and retrieves highly rated electronic products. The project helps understand the fundamental concepts of Big Data processing and serves as a foundation for learning Apache Spark.
