@@ -440,3 +440,81 @@ Support larger datasets.
 Integrate with Apache Spark.
 ## Conclusion
 This project successfully demonstrates the implementation of RDD-based data processing using Python. By applying filter and map transformations, the system efficiently processes an Amazon product dataset and retrieves highly rated electronic products. The project helps understand the fundamental concepts of Big Data processing and serves as a foundation for learning Apache Spark.
+
+
+# Superstore Sales & Profit Analysis
+
+Exploratory data analysis (EDA) of the **Sample Superstore** dataset, originally built in Google Colab. The script loads order-level retail data and explores sales, profit, delivery time, and the impact of discounts using pandas, matplotlib, and seaborn.
+
+## What This Script Does
+
+1. **Data Loading & Cleaning**
+   - Reads `samplesuperstore.csv` into a pandas DataFrame
+   - Converts `Order Date` and `Ship Date` to datetime objects
+   - Computes a new `Delivery Days` column (Ship Date − Order Date)
+   - Checks for missing values and inspects data types/summary stats
+
+2. **Category Sales Overview**
+   - Aggregates total `Sales` by `Category`
+   - Bar chart of sales by category
+   - Histogram of the overall sales distribution
+
+3. **Part 1 — Bar Plots**
+   - Profit by Category
+   - Sales Distribution by Category
+   - Answers: *Which category generates the maximum profit?*
+
+4. **Part 2 — Box Plots**
+   - Overall profit distribution (median, spread, outliers)
+   - Profit variation across categories
+
+5. **Part 3 — Discount vs. Profit**
+   - Lists unique discount levels
+   - Scatter plot of Discount vs. Profit
+   - Answers: *At what discount level does profit start decreasing?*
+
+6. **Part 4 — Correlation Heatmap**
+   - Correlation matrix of all numeric columns
+   - Heatmap visualization of relationships between variables (e.g., Sales, Profit, Discount)
+
+## Requirements
+
+```bash
+pip install pandas numpy matplotlib seaborn
+```
+
+## Data
+
+- **File expected:** `samplesuperstore.csv`
+- **Note:** The original script was written for Google Colab and includes:
+  ```python
+  df = pd.read_csv("/content/samplesuperstore - samplesuperstore.csv")
+  from google.colab import files
+  uploaded = files.upload()
+  ```
+  If running outside Colab, remove the `google.colab` import/upload block and update the file path to point to your local copy of the CSV, e.g.:
+  ```python
+  df = pd.read_csv("samplesuperstore.csv")
+  ```
+
+## Usage
+
+```bash
+python superstore.py
+```
+
+Each plot will display in sequence (or save them with `plt.savefig(...)` if running non-interactively).
+
+## Key Questions Explored
+
+- Which product category is most profitable?
+- How does profit vary and where do outliers occur?
+- Does increasing the discount hurt profit, and if so, at what point?
+- How are Sales, Profit, Discount, and other numeric fields correlated?
+
+## Possible Next Steps
+
+- Break down sales/profit by `Region`, `Sub-Category`, or `Segment`
+- Add a discount-bucket analysis (e.g., group discounts into ranges and compare average profit)
+- Build a simple regression model to quantify the discount → profit relationship
+- Export cleaned data and charts for a dashboard (e.g., Tableau, Power BI)
