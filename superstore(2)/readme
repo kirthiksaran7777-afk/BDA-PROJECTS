@@ -1,0 +1,415 @@
+SuperStore Sales Data Analysis
+Project Overview
+This project analyzes the SuperStore sales dataset using Python. The objective is to explore sales performance, customer behavior, product categories, and regional trends through data cleaning, exploratory data analysis (EDA), and data visualization.
+
+Objectives
+Clean and preprocess the dataset.
+Perform Exploratory Data Analysis (EDA).
+Analyze sales, profit, and discount trends.
+Identify top-performing categories and sub-categories.
+Visualize business insights using charts.
+Generate meaningful conclusions from the data.
+Dataset
+Dataset: sample_-_superstore.csv
+
+The dataset contains information about customer orders, including:
+
+Order ID
+Order Date
+Ship Date
+Customer Name
+Segment
+Country
+State
+Region
+Category
+Sub-Category
+Product Name
+Sales
+Quantity
+Discount
+Profit
+Technologies Used
+Python
+Jupyter Notebook
+Pandas
+NumPy
+Matplotlib
+Seaborn
+Analysis Performed
+Data Loading
+Data Cleaning
+Missing Value Analysis
+Duplicate Removal
+Data Type Conversion
+Descriptive Statistics
+Sales Analysis
+Profit Analysis
+Category-wise Analysis
+Region-wise Analysis
+Data Visualization
+Visualizations
+The notebook includes the following visualizations:
+
+Sales Distribution
+Profit Distribution
+Category-wise Sales
+Region-wise Sales
+Sub-Category Analysis
+Correlation Heatmap
+Bar Charts
+Histograms
+Box Plots
+Key Insights
+Identified the highest-selling product categories.
+Compared sales across different regions.
+Analyzed the impact of discounts on profit.
+Identified profitable and loss-making products.
+Observed customer purchasing trends.
+Installation
+Install the required libraries using:
+
+pip install pandas numpy matplotlib seaborn jupyter
+How to Run
+Clone the repository.
+Place the dataset (sample_-_superstore.csv) in the project folder.
+Open SuperStore.ipynb using Jupyter Notebook.
+Run all cells to reproduce the analysis.
+Project Structure
+SuperStore/
+│── SuperStore.ipynb
+│── sample_-_superstore.csv
+└── README.md
+Future Enhancements
+Build an interactive dashboard using Power BI or Tableau.
+Develop a sales forecasting model.
+Perform customer segmentation using machine learning.
+Deploy the project as a web application.
+Conclusion
+This project demonstrates how Python can be used for data cleaning, exploratory data analysis, and visualization to extract meaningful business insights from the SuperStore sales dataset.
+
+TASK 2
+SuperStore Sales Data Analysis
+Project Overview
+This project performs Exploratory Data Analysis (EDA) on a SuperStore sales dataset using Python.
+
+The analysis focuses on understanding sales performance, customer segments, product categories, profitability, inventory levels, payment methods, delivery status, and delivery time.
+
+The project is implemented using a Google Colab / Jupyter Notebook and uses Python data analysis and visualization libraries.
+
+Objectives
+The main objectives of this project are:
+
+Analyze SuperStore sales data
+Understand sales performance across different product categories
+Analyze profit and cost information
+Examine customer segments and regions
+Analyze inventory and reorder information
+Calculate delivery duration
+Identify missing values
+Generate statistical summaries
+Visualize sales performance using charts
+🛠️ Technologies Used
+Python
+Pandas – Data manipulation and analysis
+NumPy – Numerical operations
+Matplotlib – Data visualization
+Seaborn – Statistical data visualization
+Google Colab – Development environment
+Dataset
+The dataset contains 1,000 records with 26 columns before feature creation.
+
+Important fields include:
+
+Column	Description
+Order ID	Unique order identifier
+Order Date	Date when the order was placed
+Ship Date	Date when the order was shipped
+Customer Name	Customer name
+Customer ID	Unique customer identifier
+Customer Segment	Customer segment
+Category	Product category
+Product Name	Name of the product
+Product ID	Unique product identifier
+Region	Sales region
+State	Customer state
+City	Customer city
+Quantity	Quantity ordered
+Unit Price	Price per unit
+Discount (%)	Discount applied
+Sales Amount	Total sales amount
+Cost Price	Product cost
+Profit	Profit generated
+Stock Left	Remaining inventory
+Auto Reorder	Reorder status
+Reorder Quantity	Quantity to reorder
+Supplier Name	Supplier information
+Supplier Email	Supplier email
+Payment Mode	Payment method
+Delivery Status	Current delivery status
+Sales	Sales value
+Data Analysis Process
+1. Import Libraries
+The project uses:
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+2. Load the Dataset
+The dataset is loaded into a Pandas DataFrame.
+
+df = pd.read_csv("SuperStore.csv.csv")
+3. Explore the Dataset
+Initial exploration is performed using:
+
+df.head()
+df.info()
+df.describe()
+The dataset contains:
+
+1,000 rows
+26 original columns
+Numerical and categorical features
+No missing values in the analyzed columns
+4. Date Conversion
+The Order Date and Ship Date columns are converted into datetime format.
+
+df['Order Date'] = pd.to_datetime(df['Order Date'])
+df['Ship Date'] = pd.to_datetime(df['Ship Date'])
+5. Delivery Time Analysis
+A new feature called Delivery Days is created to calculate the number of days between ordering and shipping.
+
+df['Delivery Days'] = (
+    df['Ship Date'] - df['Order Date']
+).dt.days
+6. Missing Value Analysis
+Missing values are checked using:
+
+df.isnull().sum()
+The analysis shows 0 missing values across the dataset.
+
+Sales Analysis
+Sales are grouped by product category using:
+
+category_sales = (
+    df.groupby('Category')['Sales Amount'].sum()
+)
+The analyzed categories are:
+
+Electronics
+Furniture
+Grocery
+Office Supplies
+Category Sales
+Category	Sales Amount
+Electronics	3,140,596.45
+Furniture	2,859,123.35
+Grocery	3,130,717.80
+Office Supplies	3,196,907.70
+A bar chart is also generated to visualize sales performance by category.
+
+Visualizations
+The notebook includes data visualization using Matplotlib and Seaborn.
+
+Current analysis includes:
+
+Sales by Category
+Statistical analysis
+Inventory-related analysis
+Delivery-related analysis
+Key Dataset Statistics
+Some important numerical statistics from the dataset:
+
+Metric	Average
+Quantity	5.385
+Unit Price	2,589.46
+Discount	9.855%
+Sales Amount	12,327.35
+Cost Price	9,317.24
+Profit	3,010.10
+Stock Left	25.61
+The maximum recorded sales amount is 47,481, while the maximum recorded profit is 15,935.91.
+
+Project Structure
+SuperStore-Sales-Analysis/
+│
+├── SuperStore_Sales_Analysis.ipynb
+├── SuperStore.csv
+└── README.md
+How to Run the Project
+Option 1: Google Colab
+Upload the .ipynb file to Google Colab.
+Upload the SuperStore.csv dataset.
+Update the dataset path if required.
+Run the notebook cells sequentially.
+Option 2: Jupyter Notebook
+Install the required libraries:
+
+pip install pandas numpy matplotlib seaborn
+Then open the notebook:
+
+jupyter notebook
+Run the cells from top to bottom.
+
+Insights
+The analysis provides an overview of:
+
+Category-wise sales performance
+Profitability
+Product pricing
+Customer information
+Inventory levels
+Reordering information
+Payment methods
+Delivery status
+Delivery duration
+The project demonstrates how Python can be used to transform raw sales data into useful business insights.
+
+Future Improvements
+The project can be extended by adding:
+
+Monthly and yearly sales trends
+Region-wise sales analysis
+Customer segment analysis
+Top-performing products
+Profit by category
+Delivery status visualization
+Payment mode analysis
+Inventory and reorder analysis
+Correlation analysis
+Interactive dashboards using Power BI or Plotly
+VISUALS
+image image image image image image image image
+Data Visualization
+The project uses several visualization techniques to understand the distribution of sales and profit, compare product categories, analyze the effect of discounts, and identify relationships between numerical variables.
+
+1. Sales Distribution
+Graph Type: Histogram
+
+The Sales Distribution graph shows how the Sales Amount values are distributed across the dataset. The graph divides the sales values into multiple ranges and shows how many records fall within each range.
+
+Shows the frequency of different sales amounts.
+Helps identify the range where most sales transactions occur.
+Shows whether sales are concentrated around certain values or spread across a wide range.
+Helps identify unusually high or low sales values.
+Purpose
+This graph provides an overall understanding of the distribution and variation of sales amounts in the dataset.
+
+2. Profit by Category
+Graph Type: Bar Plot
+
+This graph compares Profit across the different product categories.
+
+Shows the average profit associated with each category.
+Allows direct comparison between product categories.
+Helps identify which categories perform better in terms of profitability.
+Shows that high sales and high profit are not necessarily the same thing.
+Purpose
+This visualization helps determine which product categories are more profitable.
+
+3. Sales Distribution by Category
+Graph Type: Bar Plot
+
+This graph compares Sales across different product categories.
+
+Shows how sales are distributed among different categories.
+Allows comparison of sales performance between categories.
+Helps identify categories with higher and lower sales.
+Provides a category-level view of overall sales performance.
+Purpose
+This graph helps identify which product categories contribute more to sales.
+
+4. Profit Distribution
+Graph Type: Box Plot
+
+The box plot represents the distribution of Profit values in the dataset.
+
+The box plot provides information about:
+
+Median: The middle profit value.
+Quartiles: Shows how the profit values are spread across the dataset.
+Interquartile Range (IQR): Shows the central 50% of profit values.
+Whiskers: Show the general range of the profit values.
+Outliers: Shows profit values that are unusually high or low.
+Purpose
+This graph helps understand the spread, central tendency, and unusual values in profit.
+
+Unlike the bar chart, which compares categories, the box plot focuses on the overall distribution of profit.
+
+5. Impact of Discount on Profit
+Graph Type: Scatter Plot
+
+This scatter plot compares Discount (%) with Profit. The dataset contains discount values of 0%, 5%, 10%, 15%, and 20%.
+
+Each point represents a data record.
+The X-axis represents the Discount percentage.
+The Y-axis represents Profit.
+It shows how profit values vary at different discount levels.
+The pattern of the points can be used to observe whether higher discounts are associated with changes in profit.
+Purpose
+This visualization helps analyze the relationship between discount levels and profit and provides insight into whether discounting may affect profitability.
+
+6. Correlation Heatmap
+Graph Type: Correlation Heatmap
+
+The correlation analysis considers numerical variables such as Quantity, Unit Price, Discount, Sales Amount, Cost Price, Profit, Stock Left, Reorder Quantity, Sales, and Delivery Days.
+
+The heatmap shows the strength and direction of relationships between numerical variables.
+
+Some important relationships found in the dataset include:
+
+Sales Amount and Cost Price: Strong positive relationship.
+Sales Amount and Profit: Strong positive relationship.
+Quantity and Sales Amount: Positive relationship.
+Unit Price and Sales Amount: Positive relationship.
+Discount and Profit: Weak negative relationship.
+Delivery Days and Sales: Almost no relationship.
+For example, the correlation between Sales Amount and Cost Price is 0.983984, while the correlation between Sales Amount and Profit is 0.867967.
+
+Purpose
+The heatmap helps identify which numerical variables are strongly or weakly related and provides a quick overview of the relationships present in the dataset.
+
+Overall Summary
+Visualization	What it explains
+Sales Distribution	How Sales Amount values are distributed
+Profit by Category	How profitability differs between categories
+Sales Distribution by Category	How sales differ between categories
+Profit Distribution (Box Plot)	Spread, median, quartiles, and outliers in profit
+Impact of Discount on Profit (Scatter Plot)	Relationship between discount percentage and profit
+Correlation Heatmap	Strength and direction of relationships between numerical variables
+Together, these visualizations provide a detailed view of the dataset by analyzing sales distribution, category performance, profit distribution, discount impact, and relationships between business variables.
+
+Author
+KIRTHIK SARAN S
+
+BCA Student
+
+About
+No description, website, or topics provided.
+Resources
+Readme
+Activity
+Stars
+0 stars
+Watchers
+0 watching
+Forks
+0 forks
+Report repository
+Releases
+No releases published
+Packages
+No packages published
+Contributors
+1
+ (1)
+@Kirthiksaran7777
+Kirthiksaran7777
+Languages
+Jupyter Notebook
+99.8%
+Python
+0.2%
+Footer
+© 2
